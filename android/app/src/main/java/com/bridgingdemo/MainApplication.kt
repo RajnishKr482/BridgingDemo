@@ -23,6 +23,7 @@ class MainApplication : Application(), ReactApplication {
               // add(MyReactNativePackage())
 
                 add(BatteryPackage())
+              add(NetworkPackage())
             }
 
         override fun getJSMainModuleName(): String = "index"

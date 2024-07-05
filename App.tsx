@@ -1,15 +1,16 @@
-import {NativeModules, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect} from 'react';
+import { NativeModules, StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
 
 const App = () => {
-  const {BatteryModule} = NativeModules;
+  const { BatteryModule, NetworkInfoModule } = NativeModules;
 
   const fetchBatteryLevel = async () => {
     try {
       const level = await BatteryModule.getBatteryLevel();
       const cos = await BatteryModule.getConstants();
+      const netInfo = await NetworkInfoModule.getNetworkInfo();
 
-      console.log('level', level);
+      console.log("level", netInfo);
     } catch (e) {
       console.error(e);
     }
@@ -18,8 +19,6 @@ const App = () => {
   useEffect(() => {
     fetchBatteryLevel();
   }, []);
-
-  console.log('BatteryModule', BatteryModule);
 
   return (
     <View>
