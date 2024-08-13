@@ -1,5 +1,4 @@
 package com.bridgingdemo;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -29,6 +28,8 @@ public class NetworkModule extends ReactContextBaseJavaModule {
         String networkType = activeNetwork != null && activeNetwork.isConnected() ? activeNetwork.getTypeName() : "NONE";
         promise.resolve(networkType);
     }
+
+
 }
 
 
